@@ -1,4 +1,5 @@
-import { useMutation } from '../../convex/_generated/react';
+import { UseMutationForAPI } from 'convex/react';
+import { API } from '../../convex/_generated/api';
 
 const seedPups = [
   {
@@ -33,7 +34,7 @@ const seedPups = [
   },
 ];
 
-export function seedData() {
+export function seedData(useMutation: UseMutationForAPI<API>) {
   const addPup = useMutation('pups:add');
 
   seedPups.forEach((pup) => {

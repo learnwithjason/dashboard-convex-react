@@ -1,17 +1,20 @@
 import { useQuery, useMutation } from '../../convex/_generated/react';
 import { reactionTypes } from './bar-chart';
-import { seedData } from '../util/seed-pups';
+import { seedPups } from '../util/seed-pups';
 
 export function List() {
   const pups = useQuery('pups:get');
+  const addPup = useMutation('pups:add');
   const addReaction = useMutation('reactions:add');
-
-  if (Array.isArray(pups) && pups.length === 0) {
-    seedData();
-  }
 
   if (!pups) {
     return null;
+  }
+
+  if (Array.isArray(pups) && pups.length === 0) {
+    seedPups.forEach((pup) => {
+      addPup(pup.name, pup.photo);
+    });
   }
 
   return (
