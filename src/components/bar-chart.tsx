@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMemo } from 'react';
-import { AxisOptions, Chart } from 'react-charts';
+import { Chart } from 'react-charts';
 import { useQuery } from '../../convex/_generated/react';
 
 interface DataPoint {
@@ -20,17 +20,12 @@ export const reactionTypes = [
 ];
 
 export function BarChart() {
-  const primaryAxis = React.useMemo<
-    AxisOptions<typeof data[number]['data'][number]>
-  >(
+  const primaryAxis = React.useMemo(
     () => ({
       getValue: (datum: DataPoint) => datum.name,
       showGrid: false,
       innerBandPadding: 0.3,
       innerSeriesBandPadding: 0.05,
-      styles: {
-        position: 'relative',
-      },
     }),
     [],
   );
