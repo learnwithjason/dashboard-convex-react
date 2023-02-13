@@ -6,12 +6,12 @@ export function List() {
   const pups = useQuery('pups:get');
   const addReaction = useMutation('reactions:add');
 
-  if (!pups) {
-    return null;
-  }
-
   if (Array.isArray(pups) && pups.length === 0) {
     seedData();
+  }
+
+  if (!pups) {
+    return null;
   }
 
   return (
