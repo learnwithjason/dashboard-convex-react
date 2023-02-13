@@ -1,7 +1,4 @@
-import { UseMutationForAPI } from 'convex/react';
-import { API } from '../../convex/_generated/api';
-
-const seedPups = [
+export const seedPups = [
   {
     name: 'Floof',
     photo:
@@ -33,11 +30,3 @@ const seedPups = [
       'https://images.unsplash.com/photo-1588269845464-8993565cac3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80&h=500&crop=top',
   },
 ];
-
-export function seedData(useMutation: UseMutationForAPI<API>) {
-  const addPup = useMutation('pups:add');
-
-  seedPups.forEach((pup) => {
-    addPup(pup.name, pup.photo);
-  });
-}
