@@ -1,5 +1,21 @@
 import { mutation, query } from './_generated/server';
 
+interface DataPoint {
+  name: string;
+  count: number;
+}
+
+interface DataSeries {
+  label: string;
+  data: DataPoint[];
+}
+
+export const reactionTypes = [
+  { name: 'heart', label: '💜' },
+  { name: 'cute', label: '🥺' },
+  { name: 'star_eyes', label: '🤩' },
+];
+
 export const add = mutation(({ db }, pup, type) => {
   db.insert('reactions', {
     pup,
@@ -7,14 +23,39 @@ export const add = mutation(({ db }, pup, type) => {
   });
 });
 
-export const get = query(async ({ db }) => {
-  const reactions = await db.query('reactions').collect();
+export const getByPup = query(async ({ db }) => {
+  const reactionsRaw = await db.query('reactions').collect();
 
-  return Promise.all(
-    reactions.map(async (reaction) => {
+  const reactions = await Promise.all(
+    reactionsRaw.map(async (reaction) => {
       const pupEntry = await db.get(reaction.pup);
 
       return { ...reaction, name: pupEntry?.name };
     }),
   );
+
+  return reactionTypes.reduce<DataSeries[]>((acc, { name, label }) => {
+    return [
+      ...acc,
+      {
+        label,
+        data: reactions
+          .filter((r) => r.type === name)
+          .reduce<DataPoint[]>((acc2, r) => {
+            const index = acc2.findIndex((d) => d.name === r.name);
+
+            if (index >= 0) {
+              acc2[index].count += 1;
+            } else if (r.name) {
+              acc2.push({
+                name: r.name,
+                count: 1,
+              });
+            }
+
+            return acc2;
+          }, []),
+      },
+    ];
+  }, []);
 });

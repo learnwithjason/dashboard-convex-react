@@ -1,5 +1,5 @@
 import { useQuery, useMutation } from '../../convex/_generated/react';
-import { reactionTypes } from './bar-chart';
+import { reactionTypes } from '../../convex/reactions';
 import { seedPups } from '../util/seed-pups';
 
 export function List() {
