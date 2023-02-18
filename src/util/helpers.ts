@@ -57,16 +57,18 @@ export const reactionTypes = [
  * we have placeholder reaction data. This will only be used until the database
  * is created.
  */
+const placeholderReactionData = reactionTypes.map((reaction) => {
+	return {
+		label: reaction.label,
+		data: seedPups.map((pup) => {
+			return {
+				name: pup.name,
+				count: Math.round(Math.random() * 40),
+			};
+		}),
+	};
+});
+
 export const getPlaceholderReactionData = () => {
-	return reactionTypes.map((reaction) => {
-		return {
-			label: reaction.label,
-			data: seedPups.map((pup) => {
-				return {
-					name: pup.name,
-					count: Math.round(Math.random() * 40),
-				};
-			}),
-		};
-	});
+	return placeholderReactionData;
 };

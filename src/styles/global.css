@@ -1,17 +1,17 @@
 :root {
-  color: hsl(320deg 10% 40% / 1);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  line-height: 1.45;
+	color: hsl(320deg 10% 40% / 1);
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+		Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	line-height: 1.45;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  background: hsl(177deg 100% 96% / 1);
-  margin: 0;
+	background: hsl(177deg 100% 96% / 1);
+	margin: 0;
 }
 
 h1,
@@ -20,128 +20,128 @@ h3,
 h4,
 h5,
 h6 {
-  color: hsl(320deg 10% 20% / 1);
-  line-height: 1.1;
+	color: hsl(320deg 10% 20% / 1);
+	line-height: 1.1;
 }
 
 button {
-  background: hsl(320deg 80% 98% / 0);
-  border: 0.5px solid hsl(320deg 30% 85% / 0);
-  border-radius: 0.25rem;
-  display: block;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  transition: all linear 200ms;
+	background: hsl(320deg 80% 98% / 0);
+	border: 0.5px solid hsl(320deg 30% 85% / 0);
+	border-radius: 0.25rem;
+	display: block;
+	font-size: 1.5rem;
+	padding: 0.5rem 1rem;
+	transition: all linear 200ms;
 }
 
 .main {
-  display: block;
-  margin: 3rem auto;
-  min-height: 75vh;
-  width: min(90vw, 850px);
+	display: block;
+	margin: 3rem auto;
+	min-height: 75vh;
+	width: min(90vw, 850px);
 }
 
 .toggle {
-  background: hsl(320deg 80% 98% / 0.25);
-  border: 0.5px solid hsl(320deg 30% 85% / 1);
-  font-size: 1rem;
-  margin: 0 auto 2rem;
+	background: hsl(320deg 80% 98% / 0.25);
+	border: 0.5px solid hsl(320deg 30% 85% / 1);
+	font-size: 1rem;
+	margin: 0 auto 2rem;
 }
 
 h1 {
-  font-size: 1.25rem;
-  font-weight: normal;
-  margin: 0;
-  text-align: center;
+	font-size: 1.25rem;
+	font-weight: normal;
+	margin: 0;
+	text-align: center;
 }
 
 .chart-container {
-  aspect-ratio: 1.56;
-  display: block;
-  margin-top: 2rem;
-  width: 100%;
+	aspect-ratio: 1.56;
+	display: block;
+	margin-top: 2rem;
+	width: 100%;
 }
 
 .pups {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
-  gap: 2rem;
-  justify-content: center;
-  margin: 2rem auto 4rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 250px);
+	gap: 2rem;
+	justify-content: center;
+	margin: 2rem auto 4rem;
 }
 
 .pup {
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 5px 1px hsl(320deg 40% 20% / 0.25);
-  overflow: hidden;
-  position: relative;
-  transition: 100ms all linear;
+	border-radius: 0.25rem;
+	box-shadow: 0 2px 5px 1px hsl(320deg 40% 20% / 0.25);
+	overflow: hidden;
+	position: relative;
+	transition: 100ms all linear;
 }
 
-.pup:focus-within,
-.pup:hover {
-  box-shadow: 0 2px 8px 3px hsl(320deg 40% 20% / 0.25);
-  transform: scale(1.02) translateY(-2px);
+.pup:is(:focus-within, :hover) {
+	box-shadow: 0 2px 8px 3px hsl(320deg 40% 20% / 0.25);
+	transform: scale(1.02) translateY(-2px);
 }
 
 .pup img {
-  display: block;
-  height: auto;
-  width: 100%;
+	display: block;
+	height: auto;
+	width: 100%;
 }
 
 .pup h2 {
-  color: white;
-  text-shadow: -1px -1px 1px hsl(320deg 20% 25% / 1),
-    1px -1px 1px hsl(320deg 20% 25% / 1), 1px 1px 1px hsl(320deg 20% 25% / 1),
-    -1px 1px 1px hsl(320deg 20% 25% / 1);
-  margin: 0;
-  padding: 0.25rem 0.5rem;
-  position: absolute;
-  top: 0;
-  left: 0;
+	color: white;
+	text-shadow: -1px -1px 1px hsl(320deg 20% 25% / 1),
+		1px -1px 1px hsl(320deg 20% 25% / 1), 1px 1px 1px hsl(320deg 20% 25% / 1),
+		-1px 1px 1px hsl(320deg 20% 25% / 1);
+	margin: 0;
+	padding: 0.25rem 0.5rem;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .reactions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  padding: 0.75rem;
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  right: 0;
-  opacity: 0.5;
-  transition: all 200ms ease-out;
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	padding: 0.75rem;
+	position: absolute;
+	bottom: -0.5rem;
+	left: 0;
+	right: 0;
+	opacity: 0.5;
+	transition: all 200ms ease-out;
 }
 
-.pup:focus-within .reactions,
-.pup:hover .reactions {
-  bottom: 0;
-  opacity: 1;
+.pup:is(:focus-within, :hover) .reactions {
+	bottom: 0;
+	opacity: 1;
 }
 
-.pup:focus-within button,
-.pup:hover button {
-  background: hsl(320deg 80% 98% / 0.5);
-  border: 0.5px solid hsl(320deg 30% 85% / 0.25);
+.pup:is(:focus-within, :hover) button {
+	background: hsl(320deg 80% 98% / 0.5);
+	border: 0.5px solid hsl(320deg 30% 85% / 0.25);
+	transition: all 100ms ease-out;
 }
 
-.pup:focus-within button:focus,
-.pup:hover button:focus,
-.pup:focus-within button:hover,
-.pup:hover button:hover {
-  background-color: hsl(320deg 80% 98% / 0.8);
-  border-color: hsl(320deg 20% 65% / 0.95);
-  cursor: pointer;
+.pup:is(:focus-within, :hover) button:is(:focus, :hover) {
+	background-color: hsl(320deg 80% 98% / 0.8);
+	border-color: hsl(320deg 20% 65% / 0.95);
+	cursor: pointer;
+}
+
+.pup:is(:focus-within, :hover) button:active {
+	background-color: hsl(320deg 80% 98% / 1);
+	transform: scale(1.02);
 }
 
 footer {
-  color: hsl(320deg 20% 40% / 1);
-  font-size: 0.75rem;
-  text-align: center;
+	color: hsl(320deg 20% 40% / 1);
+	font-size: 0.75rem;
+	text-align: center;
 }
 
 footer a {
-  color: inherit;
+	color: inherit;
 }
