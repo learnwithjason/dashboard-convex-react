@@ -9,6 +9,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"convex": "^0.9.1",
 		"date-fns": "^2.29.3",
 		"react": "^18.2.0",
 		"react-charts": "3.0.0-beta.38",
