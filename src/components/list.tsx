@@ -1,10 +1,11 @@
+import { useQuery, useMutation } from '../../convex/_generated/react';
 import { seedPups, reactionTypes } from '../util/helpers';
 
 export function List() {
 	// TODO hook these up to the Convex database
-	const pups = seedPups;
-	const addPup = (..._args: any) => {};
-	const addReaction = (..._args: any) => {};
+	const pups = useQuery('pups:get');
+	const addPup = useMutation('pups:add');
+	const addReaction = useMutation('reactions:add');
 
 	if (!pups) {
 		return null;

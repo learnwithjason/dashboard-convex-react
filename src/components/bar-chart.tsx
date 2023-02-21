@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMemo } from 'react';
 import { Chart } from 'react-charts';
-import { getPlaceholderReactionData } from '../util/helpers';
+import { useQuery } from '../../convex/_generated/react';
 
 interface DataPoint {
 	name: string;
@@ -29,7 +29,7 @@ export function BarChart() {
 		];
 	}, []);
 
-	const reactions = getPlaceholderReactionData();
+	const reactions = useQuery('reactions:getByPup');
 
 	if (!reactions) {
 		return null;
