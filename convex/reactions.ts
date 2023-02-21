@@ -29,26 +29,26 @@ export const getByPup = query(async ({ db }) => {
 		}),
 	);
 
-	return reactionTypes.reduce<DataSeries[]>((acc, { name, label }) => {
+	return reactionTypes.reduce<DataSeries[]>((dataseries, { name, label }) => {
 		return [
-			...acc,
+			...dataseries,
 			{
 				label,
 				data: reactions
 					.filter((r) => r.type === name)
-					.reduce<DataPoint[]>((acc2, r) => {
-						const index = acc2.findIndex((d) => d.name === r.name);
+					.reduce<DataPoint[]>((datapoints, r) => {
+						const index = datapoints.findIndex((d) => d.name === r.name);
 
 						if (index >= 0) {
-							acc2[index].count += 1;
+							datapoints[index].count += 1;
 						} else if (r.name) {
-							acc2.push({
+							datapoints.push({
 								name: r.name,
 								count: 1,
 							});
 						}
 
-						return acc2;
+						return datapoints;
 					}, []),
 			},
 		];
