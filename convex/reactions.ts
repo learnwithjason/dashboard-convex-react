@@ -11,8 +11,8 @@ interface DataSeries {
 	data: DataPoint[];
 }
 
-export const add = mutation(({ db }, pup, type) => {
-	db.insert('reactions', {
+export const add = mutation(async ({ db }, pup, type) => {
+	await db.insert('reactions', {
 		pup,
 		type,
 	});
