@@ -1,16 +1,19 @@
-import { defineSchema, defineTable, s } from 'convex/schema';
+import { defineSchema, defineTable } from "convex/schema";
+import { v } from "convex/values";
+
+export const ReactionType = v.union(
+  v.literal("heart"),
+  v.literal("cute"),
+  v.literal("star_eyes")
+);
 
 export default defineSchema({
-	pups: defineTable({
-		name: s.string(),
-		photo: s.string(),
-	}),
-	reactions: defineTable({
-		pup: s.id('pups'),
-		type: s.union(
-			s.literal('heart'),
-			s.literal('cute'),
-			s.literal('star_eyes'),
-		),
-	}),
+  pups: defineTable({
+    name: v.string(),
+    photo: v.string(),
+  }),
+  reactions: defineTable({
+    pup: v.id("pups"),
+    type: ReactionType,
+  }),
 });
