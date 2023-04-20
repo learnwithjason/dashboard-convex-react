@@ -50,7 +50,7 @@ export const reactionTypes = [
 	{ name: 'heart', label: '💜' },
 	{ name: 'cute', label: '🥺' },
 	{ name: 'star_eyes', label: '🤩' },
-];
+] as const;
 
 /*
  * Before the database is set up, we want to show how the app _should_ work, so
