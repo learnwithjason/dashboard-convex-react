@@ -12,8 +12,8 @@ export function List() {
 	}
 
 	if (Array.isArray(pups) && pups.length === 0) {
-		seedPups.forEach((pup) => {
-			addPup(pup.name, pup.photo);
+		seedPups.forEach(({name, photo}) => {
+			addPup({name, photo});
 		});
 	}
 
@@ -29,7 +29,7 @@ export function List() {
 							{reactionTypes.map((reaction) => {
 								return (
 									<button
-										onClick={() => addReaction(pup._id, reaction.name)}
+										onClick={() => addReaction({ pup: pup._id, type: reaction.name })}
 										key={reaction.label + pup._id}
 									>
 										<span role="img" aria-label={reaction.name}>
