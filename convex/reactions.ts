@@ -1,5 +1,7 @@
 import { mutation, query } from './_generated/server';
 import { reactionTypes } from '../src/util/helpers';
+import { v } from 'convex/values';
+import { ReactionType } from './schema';
 
 interface DataPoint {
 	name: string;
@@ -11,11 +13,14 @@ interface DataSeries {
 	data: DataPoint[];
 }
 
-export const add = mutation(async ({ db }, pup, type) => {
-	await db.insert('reactions', {
-		pup,
-		type,
-	});
+export const add = mutation({
+	args: { pup: v.id("pups"), type: ReactionType },
+	handler: async ({ db }, { pup, type }) => {
+		await db.insert('reactions', {
+			pup,
+			type,
+		});
+	},
 });
 
 export const getByPup = query(async ({ db }) => {
