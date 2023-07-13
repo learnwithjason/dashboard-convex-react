@@ -13,8 +13,8 @@ export function List() {
 	}
 
 	if (Array.isArray(pups) && pups.length === 0) {
-		seedPups.forEach(({name, photo}) => {
-			addPup({name, photo});
+		seedPups.forEach((pup) => {
+			addPup(pup);
 		});
 	}
 
