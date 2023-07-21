@@ -1,7 +1,8 @@
+import { api } from "../../convex/_generated/api";
+import { useQuery } from "convex/react";
 import React from 'react';
 import { useMemo } from 'react';
 import { Chart } from 'react-charts';
-import { useQuery } from '../../convex/_generated/react';
 
 interface DataPoint {
 	name: string;
@@ -29,7 +30,7 @@ export function BarChart() {
 		];
 	}, []);
 
-	const reactions = useQuery('reactions:getByPup');
+	const reactions = useQuery(api.reactions.getByPup);
 
 	if (!reactions) {
 		return null;
